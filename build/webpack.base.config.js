@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 function resolve(dir){
+    console.log(path.resolve(__dirname, '../static/image'))
     return path.join(__dirname, '..', dir)
 }
 
@@ -12,7 +13,6 @@ module.exports ={
     entry:'./src/main.js',
     output:{
         path:path.resolve(__dirname,'dist'),
-        publicPath: '/dist/',
         filename:"js/[name].js"
     },
     resolve: {
@@ -44,7 +44,7 @@ module.exports ={
                         loader: 'url-loader',
                         options: {
                             limit: 1024,
-                            name: 'static/img/[name].[hash:6].[ext]'
+                            name: '[name].[hash:6].[ext]'
                         }
                     }
                 ]
@@ -79,7 +79,7 @@ module.exports ={
         new VueLoaderPlugin(),
         new CopyWebpackPlugin([
             {
-              from: path.resolve(__dirname, '../static'),
+              from: path.resolve(__dirname, '../static/image'),
               to: 'static',
               ignore: ['.*']
             }

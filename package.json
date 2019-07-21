@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
+    "dev": "webpack-dev-server --inline --progress --hot --config build/webpack.dev.config.js",
     "build": "webpack --mode production --env.NODE_ENV=PRODUCTION",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -9,11 +9,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
    /*  output: {
         publicPath: 'static/image'
     }, */
+    //mode: 'development',
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
-        port: 80,
+        clientLogLevel: 'warning',
+        port: 90,
+        host: 'localhost',
         hot: true,
+        hotOnly: true,
         open: true,
         overlay: true,
         publicPath: '/'
@@ -23,9 +27,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         new htmlWebpackPlugin({
             template: 'index.html'
         }),
+        new webpack.HotModuleReplacementPlugin(),
         //make the env globaly
         new webpack.DefinePlugin({
-            'process.env': 'development'
+            'process.env': {
+                NODE_ENV: '"development"'
+            }
           }),
     ],
 })
