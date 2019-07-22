@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 function resolve(dir){
-    console.log(path.resolve(__dirname, '../static/image'))
+    //console.log(path.resolve(__dirname, '../static/image'))
     return path.join(__dirname, '..', dir)
 }
 

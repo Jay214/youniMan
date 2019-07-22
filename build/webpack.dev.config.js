@@ -14,11 +14,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
         clientLogLevel: 'warning',
-        port: 90,
+        port: 80,
         host: 'localhost',
         hot: true,
         hotOnly: true,
         open: true,
+        quiet: true, // necessary for FriendlyErrorsPlugin
         overlay: true,
         publicPath: '/'
     },
@@ -27,7 +28,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         new htmlWebpackPlugin({
             template: 'index.html'
         }),
-        new webpack.HotModuleReplacementPlugin(),
+        //new webpack.HotModuleReplacementPlugin(),
         //make the env globaly
         new webpack.DefinePlugin({
             'process.env': {
@@ -38,6 +39,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 })
 
 module.exports =  new Promise((resolve, reject) => {
+    console.log('process.env.PORT', process.env.PORT)
     portfinder.basePort = process.env.PORT||80
     //check the open port
     portfinder.getPort((err, port) => {

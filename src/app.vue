@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            test: 'hello junjian!hello junjian!'
+            test: 'hello junjian!hello Jay!'
         }
     }
 }
